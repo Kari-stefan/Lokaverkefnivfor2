@@ -1,0 +1,237 @@
+@use "../variables" as *;
+
+.showdetail {
+  display: flex;
+  gap: 3rem;
+  padding: 3rem 0;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  img {
+    width: 280px;
+    min-width: 280px;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: $radius-md;
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.7),
+      0 0 0 1px $card-border;
+    flex-shrink: 0;
+  }
+
+  .showdetailinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: $text-light;
+    }
+
+    .showmeta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.75rem;
+        border-radius: $radius-pill;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: $text-muted;
+      }
+    }
+
+    p {
+      line-height: 1.75;
+      color: rgba($text-light, 0.78);
+      font-size: 0.95rem;
+      max-width: 55ch;
+    }
+
+    .buttonback {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: auto;
+      align-self: flex-start;
+      color: $text-muted;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.45rem 1rem;
+      border: 1px solid $border-color;
+      border-radius: $radius-pill;
+      transition: $transition-base;
+
+      &:hover {
+        color: $text-light;
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .showdetail {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem 0;
+
+    img {
+      width: 100%;
+      max-width: 260px;
+      min-width: unset;
+    }
+
+    .showdetailinfo {
+      align-items: center;
+
+      .showmeta {
+        justify-content: center;
+      }
+
+      p {
+        max-width: unset;
+      }
+
+      .buttonback {
+        align-self: center;
+      }
+    }
+  }
+}
+
+.reviewformsection {
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid $border-color;
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $text-light;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.reviewform {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 600px;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input[type="text"],
+    textarea {
+      background: $surface-color;
+      border: 1px solid $card-border;
+      border-radius: $radius-md;
+      color: $text-light;
+      font-family: $font-sans;
+      font-size: 0.92rem;
+      padding: 0.7rem 1rem;
+      transition: border-color 0.18s ease;
+      resize: vertical;
+
+      &::placeholder {
+        color: $text-dim;
+      }
+      &:focus {
+        outline: none;
+        border-color: rgba($accent-color, 0.5);
+        box-shadow: 0 0 0 3px rgba($accent-color, 0.1);
+      }
+    }
+  }
+}
+
+.ratinginput {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: $surface-hover;
+    border-radius: $radius-pill;
+    outline: none;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: $accent-color;
+      cursor: pointer;
+      box-shadow: 0 0 0 3px rgba($accent-color, 0.25);
+      transition: box-shadow 0.18s ease;
+    }
+
+    &:hover::-webkit-slider-thumb {
+      box-shadow: 0 0 0 5px rgba($accent-color, 0.3);
+    }
+  }
+}
+
+.ratingdisplay {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: $gold;
+  min-width: 2ch;
+  text-align: center;
+}
+
+.btnsubmit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  background-color: $accent-color;
+  color: #fff;
+  border: none;
+  border-radius: $radius-sm;
+  padding: 0.65rem 1.6rem;
+  font-family: $font-sans;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    box-shadow 0.18s ease;
+
+  &:hover {
+    background-color: $accent-hover;
+    box-shadow: 0 4px 16px $accent-glow;
+  }
+}

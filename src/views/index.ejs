@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+  <div class="pagehero">
+    <h1>Vinsælar seríur</h1>
+  </div>
+  <div class="showgrid">
+    <% shows.forEach(show=> { %>
+      <div class="showcard">
+        <div class="showcardimg">
+          <img src="<%= show.image_url %>" alt="<%= show.title %>">
+        </div>
+        <div class="showcardbod">
+          <h3>
+            <%= show.title %>
+          </h3>
+          <p>
+            <%= show.year %> &bull; <%= show.seasons %> þættir
+          </p>
+          <a href="/show/<%= show.id %>" class="btn">Skoða</a>
+        </div>
+      </div>
+      <% }) %>
+  </div>
+  <%- include('partials/footer') %>

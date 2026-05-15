@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<div class="pagehero">
+  <h1>Innskráning</h1>
+  <p>Skráðu þig inn til að bæta við eða fjarlægja þætti.</p>
+</div>
+
+<div class="formcontainer">
+  <form action="/login" method="POST" class="authform">
+    
+    <div class="formgroup">
+      <label for="username">Notandanafn</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+
+    <div class="formgroup">
+      <label for="password">Lykilorð</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+
+    <button type="submit" class="btn btnsubmit">Skrá inn</button>
+  </form>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | Sjónvarpsvefurinn</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="navname">
+                <span class="navicon"></span>
+                <span>Sj<span class="huh">ón</span>varpsvefurinn</span>
+            </a>
+            <div class="navlink">
+                <a href="/" class="navbtn">Þættir</a>
+                <% if (locals.user) { %>
+                    <a href="/logout" class="skraut">skrá út (<%= user.username %>)</a>
+                    <a href="/create" class="navbtn">Bæta við</a>
+                    <a href="/remove" class="navbtn">Fjarlægja</a>
+                    
+                <% } else { %>
+                    <a href="/login" class="navbtn">Innskráning</a>
+                    <a href="/register" class="navbtn">Nýskráning</a>
+                <% } %>
+                <a href="/about" class="navbtn">Um okkur</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+    <div class="container">

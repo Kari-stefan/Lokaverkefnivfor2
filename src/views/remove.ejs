@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+  <div class="pagehero">
+    <h1>Fjarlægja þætti</h1>
+    <p>Veldu sjónvarpsþátt til að eyða úr gagnagrunninum.</p>
+  </div>
+
+  <div class="formcontainer">
+    <form action="/remove" method="POST" class="authform">
+
+      <div class="formgroup">
+        <label for="id">Veldu þátt</label>
+        <select id="id" name="id" required class="formselect">
+          <% if (shows && shows.length> 0) { %>
+            <% shows.forEach(show=> { %>
+              <option value="<%= show.id %>">
+                <%= show.title %> (<%= show.year %>)
+              </option>
+              <% }) %>
+                <% } else { %>
+                  <option value="" disabled selected>afh eyddiru öllu :(</option>
+                  <% } %>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btnsubmit">Fjarlægja</button>
+    </form>
+  </div>
+
+
+
+  <%- include('partials/footer') %>

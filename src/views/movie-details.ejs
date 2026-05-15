@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+
+<section class="moviedetail">
+  <img src="<%= movie.image_url %>" alt="<%= movie.title %>">
+  <div class="moviedetail__info">
+    <h1><%= movie.title %> (<%= movie.year %>)</h1>
+    <p><%= movie.description %></p>
+    <a href="/" class="buttonback">← Til baka</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
